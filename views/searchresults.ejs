@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        body {
+            background-image: url("background3.jpg");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+
+        h1 {
+            color: white;
+            text-align: center;
+            -webkit-text-stroke: 1px blue;
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        a {
+            color: #00ffcc;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-2">
+        <a class="navbar-brand" style="color: rgb(191, 255, 161)">Search Results</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto"></ul>
+            <%- include('includes/search.ejs') %>            
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <% if (results && results.length > 0) { %>
+            <h2 class="text-center mb-4">Search Results</h2>
+            <ul class="list-group">
+                <% results.forEach(result => { %>
+                    <li class="list-group-item">
+                        <a href="/<%= result.type %>/<%= result.name %>" class="text-decoration-none">
+                            <h5 class="mb-1"><%= result.name %></h5>
+                            <p class="mb-1">Type: <%= result.type %></p>
+                        </a>
+                    </li>
+                <% }) %>
+            </ul>
+        <% } else { %>
+            <h2 class="text-center">No destinations found matching your search.</h2>
+        <% } %>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/rfDsq9IuZXieAUpQjI12pTkCmTq7EqF3QLv6VqQWxRRA2a1Fmr2cb9F4e9jr" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-JwYy7r9uwQflqszf0hFSPZ7g7rF53DLUp7sO9ANmYNReGZ8fNqmrbdD4PUl8AMbF" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIq0bbF3df5K7y5M77n4roF4S4F9F4zB48ijmtKvMQCwAAY++dP" crossorigin="anonymous"></script>
+</body>
+</html>

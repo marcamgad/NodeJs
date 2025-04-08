@@ -1,0 +1,6 @@
+<form action="/wanttogo" method="POST">
+  <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+  <input type="hidden" name="destinationId" value="<%= destination._id %>">
+  <input type="hidden" name="destinationType" value="<%= destination.type %>">
+  <button id="wanttogo" class="btn btn-secondary ml-3" type="submit">Add to Want-to-Go List</button>
+</form>
