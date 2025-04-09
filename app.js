@@ -16,7 +16,7 @@ const islandRoutes = require('./routes/island');
 const destinationRoutes = require('./routes/destination');
 const searchRoutes = require('./routes/search');
 
-const MongoDb_URI = 'mongodb+srv://marcamgad:Mark2003@cluster0.i8jhymd.mongodb.net/shop?retryWrites=true&w=majority&appName=Cluster0';
+const MongoDb_URI = '';
 
 const store = new mongoDBStore({
   uri: MongoDb_URI,
